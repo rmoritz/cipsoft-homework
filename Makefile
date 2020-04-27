@@ -1,6 +1,7 @@
 # Paths
 SRCDIR := src
 OBJDIR := build
+INCDIR := include
 PROGRAM := solver
 SRC := $(wildcard $(SRCDIR)/*.cc)
 PRG := $(OBJDIR)/$(PROGRAM)
@@ -11,7 +12,7 @@ RM := rm -rf
 MKDIR := mkdir -p
 
 # Flags
-CFLAGS := -O3 -Wall -Wpedantic
+CFLAGS := -Iinclude -O3 -Wall -Wpedantic
 LDFLAGS := 
 
 # Targets
