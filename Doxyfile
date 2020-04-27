@@ -1,0 +1,5 @@
+PROJECT_NAME           = "Cipsoft Homework"
+OUTPUT_DIRECTORY       = build/docs
+INPUT                  = include
+FILE_PATTERNS          = *.hh
+BUILTIN_STL_SUPPORT    = NO

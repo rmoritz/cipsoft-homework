@@ -1,7 +1,7 @@
-#include "minmax.hh"
-#include <vector>
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
+#include <vector>
+#include "minmax.hh"
 
 int main() {
   int nItems;
@@ -21,7 +21,8 @@ int main() {
   int n;
 
   for (auto i = 0; i != nItems; ++i) {
-    if (!(std::cin >> n)) break;
+    if (!(std::cin >> n))
+      break;
 
     items.push_back(n);
   }
@@ -34,10 +35,7 @@ int main() {
 
   std::vector<std::vector<int>> partitions;
 
-  auto answer = homework::minMaxPartition(
-    items,
-    nPartitions, 
-    partitions); 
+  auto answer = homework::minMaxPartition(items, nPartitions, partitions);
 
   for (auto i = 0; i != partitions.size(); ++i) {
     auto const& part = partitions[i];
@@ -47,11 +45,8 @@ int main() {
       sum += n;
     }
 
-    std::cout << (i+1) << ". Tag: " << sum << " km"
-	      << std::endl;
+    std::cout << (i + 1) << ". Tag: " << sum << " km" << std::endl;
   }
 
-  std::cout << std::endl
-	    << "Maximum: " << answer << " km"
-	    << std::endl;
+  std::cout << std::endl << "Maximum: " << answer << " km" << std::endl;
 }

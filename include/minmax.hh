@@ -3,10 +3,20 @@
 
 #include <vector>
 
+//! \brief Contains the solution to the homework assignment
 namespace homework {
-  int minMaxPartition(std::vector<int> const& items,
-                      int npartitions,
-	              std::vector<std::vector<int>>& partitions);
-}
+/*! \brief Divide items into nPartitions such that
+    the largest sum of the items in any partition
+    has the minimum value.
 
-#endif // #ifndef MINMAX_HH
+    \param items the items to be partitioned
+    \param nPartitions the number of partitions for items
+    \param partitions the resulting partitions
+    \return the maximum partition sum
+*/
+int minMaxPartition(std::vector<int> const& items,
+                    int nPartitions,
+                    std::vector<std::vector<int>>& partitions);
+}  // namespace homework
+
+#endif  // #ifndef MINMAX_HH

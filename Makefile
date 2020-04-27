@@ -8,6 +8,7 @@ PRG := $(OBJDIR)/$(PROGRAM)
 
 # Commands
 CC := clang++
+DOXY := $(shell which doxygen)
 RM := rm -rf
 MKDIR := mkdir -p
 
@@ -18,13 +19,19 @@ LDFLAGS :=
 # Targets
 .PHONY: all prg clean
 
-all: prg
+all: docs prg
+
 prg: $(PRG)
+
+docs: | $(OBJDIR)
+ifneq ($(strip $(DOXY)),)
+	$(DOXY)
+endif
 
 $(PRG): $(SRC)
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-$(SRC): | $(OBJDIR) $(DSTDIR)
+$(SRC): | $(OBJDIR)
 
 $(OBJDIR):
 	$(MKDIR) $(OBJDIR)

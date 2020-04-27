@@ -1,17 +1,17 @@
 #include "minmax.hh"
 
-bool check(
-        int mid, 
-	std::vector<int> const& items, 
-	int nPartitions, 
-	std::vector<std::vector<int>>& partitions) {
+bool check(int mid,
+           std::vector<int> const& items,
+           int nPartitions,
+           std::vector<std::vector<int>>& partitions) {
   int count = 1;
   int sum = 0;
   std::vector<std::vector<int>> tempPartitions;
   std::vector<int> part;
 
   for (auto const& n : items) {
-    if (n > mid) return false;
+    if (n > mid)
+      return false;
 
     sum += n;
 
@@ -34,10 +34,9 @@ bool check(
   return count <= nPartitions;
 }
 
-int homework::minMaxPartition(
-	std::vector<int> const& items,
-        int nPartitions,
-        std::vector<std::vector<int>>& partitions) {
+int homework::minMaxPartition(std::vector<int> const& items,
+                              int nPartitions,
+                              std::vector<std::vector<int>>& partitions) {
   int start = 1;
   int end = 0;
 
@@ -54,8 +53,7 @@ int homework::minMaxPartition(
       // mid is a possible solution
       answer = mid;
       end = mid - 1;
-    }
-    else {
+    } else {
       start = mid + 1;
     }
   }
