@@ -35,7 +35,7 @@ int main() {
 
   std::vector<std::vector<int>> partitions;
 
-  auto answer = homework::minMaxPartition(items, nPartitions, partitions);
+  auto answer = homework::getMinMaxPartition(items, nPartitions, partitions);
 
   for (auto i = 0; i != partitions.size(); ++i) {
     auto const& part = partitions[i];

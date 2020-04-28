@@ -1,5 +1,38 @@
 #include "minmax.hh"
 
+// Forward declare helper function
+bool check(int mid,
+           std::vector<int> const& items,
+           int nPartitions,
+           std::vector<std::vector<int>>& partitions);
+
+int homework::getMinMaxPartition(std::vector<int> const& items,
+                                 int nPartitions,
+                                 std::vector<std::vector<int>>& partitions) {
+  int start = 1;
+  int end = 0;
+
+  for (auto const& n : items) {
+    end += n;
+  }
+
+  int answer = 0;
+
+  while (start <= end) {
+    int mid = (start + end) / 2;
+
+    if (check(mid, items, nPartitions, partitions)) {
+      // mid is a possible solution
+      answer = mid;
+      end = mid - 1;
+    } else {
+      start = mid + 1;
+    }
+  }
+
+  return answer;
+}
+
 bool check(int mid,
            std::vector<int> const& items,
            int nPartitions,
@@ -36,31 +69,4 @@ bool check(int mid,
   }
 
   return count <= nPartitions;
-}
-
-int homework::minMaxPartition(std::vector<int> const& items,
-                              int nPartitions,
-                              std::vector<std::vector<int>>& partitions) {
-  int start = 1;
-  int end = 0;
-
-  for (auto const& n : items) {
-    end += n;
-  }
-
-  int answer = 0;
-
-  while (start <= end) {
-    int mid = (start + end) / 2;
-
-    if (check(mid, items, nPartitions, partitions)) {
-      // mid is a possible solution
-      answer = mid;
-      end = mid - 1;
-    } else {
-      start = mid + 1;
-    }
-  }
-
-  return answer;
 }

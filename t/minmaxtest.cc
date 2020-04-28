@@ -1,7 +1,7 @@
 #include <catch.hpp>
 #include "minmax.hh"
 
-SCENARIO("minMaxPartition") {
+SCENARIO("getMinMaxPartition") {
   std::vector<int> items;
   auto nPartitions = 0;
   std::vector<std::vector<int>> partitions;
@@ -11,7 +11,7 @@ SCENARIO("minMaxPartition") {
     nPartitions = 1;
 
     // Act
-    auto answer = homework::minMaxPartition(items, nPartitions, partitions);
+    auto answer = homework::getMinMaxPartition(items, nPartitions, partitions);
 
     // Assert
     THEN("returns 0") { REQUIRE(answer == 0); }
@@ -24,7 +24,7 @@ SCENARIO("minMaxPartition") {
     items.push_back(2);
 
     // Act
-    auto answer = homework::minMaxPartition(items, nPartitions, partitions);
+    auto answer = homework::getMinMaxPartition(items, nPartitions, partitions);
 
     // Assert
     THEN("returns 0") { REQUIRE(answer == 0); }
@@ -36,7 +36,7 @@ SCENARIO("minMaxPartition") {
     nPartitions = -1;
 
     // Act
-    auto answer = homework::minMaxPartition(items, nPartitions, partitions);
+    auto answer = homework::getMinMaxPartition(items, nPartitions, partitions);
 
     // Assert
     THEN("returns 0") { REQUIRE(answer == 0); }
@@ -57,7 +57,7 @@ SCENARIO("minMaxPartition") {
     std::vector<std::vector<int>> expected = {{11}, {16, 5, 5}, {12, 10}};
 
     // Act
-    auto answer = homework::minMaxPartition(items, nPartitions, partitions);
+    auto answer = homework::getMinMaxPartition(items, nPartitions, partitions);
 
     // Assert
     THEN("returns correct answer") { REQUIRE(answer == 26); }

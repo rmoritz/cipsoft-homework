@@ -14,9 +14,9 @@ namespace homework {
     \param partitions the resulting partitions
     \return the maximum partition sum
 */
-int minMaxPartition(std::vector<int> const& items,
-                    int nPartitions,
-                    std::vector<std::vector<int>>& partitions);
+int getMinMaxPartition(std::vector<int> const& items,
+                       int nPartitions,
+                       std::vector<std::vector<int>>& partitions);
 }  // namespace homework
 
 #endif  // #ifndef MINMAX_HH
