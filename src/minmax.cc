@@ -4,6 +4,10 @@ bool check(int mid,
            std::vector<int> const& items,
            int nPartitions,
            std::vector<std::vector<int>>& partitions) {
+  if (nPartitions == 0) {
+    return 0;
+  }
+
   int count = 1;
   int sum = 0;
   std::vector<std::vector<int>> tempPartitions;
