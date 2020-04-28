@@ -11,17 +11,21 @@ CC := clang++
 DOXY := $(shell which doxygen)
 RM := rm -rf
 MKDIR := mkdir -p
+MAKE := make
 
 # Flags
-CFLAGS := -Iinclude -O3 -Wall -Wpedantic
-LDFLAGS := 
+CFLAGS := -I$(INCDIR) -O3 -Wall -Wpedantic
+LDFLAGS :=
 
 # Targets
-.PHONY: all prg clean
+.PHONY: all docs prg test clean
 
-all: docs prg
+all: docs prg test
 
 prg: $(PRG)
+
+test:
+	$(MAKE) -C t
 
 docs: | $(OBJDIR)
 ifneq ($(strip $(DOXY)),)
@@ -37,4 +41,4 @@ $(OBJDIR):
 	$(MKDIR) $(OBJDIR)
 
 clean:
-	$(RM) $(OBJDIR) 
+	$(RM) $(OBJDIR)
