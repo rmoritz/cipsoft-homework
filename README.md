@@ -2,7 +2,7 @@ This is my submission for a homework assignment set by Cipsoft. The assignment
 is described in German in [Hausaufgabe-Programmierer.pdf](Hausaufgabe-Programmierer.pdf).
 
 The solution is coded in modern C++, and consists of a console application,
-[src/driver.cc](src/driver.cc]), and logic module [src/minmax.cc](src/minmax.cc).
+[src/driver.cc](src/driver.cc), and logic module [src/minmax.cc](src/minmax.cc).
 The problem itself is solved by the function `getMinMaxPartition` (see [include/minmax.hh](include/minmax.hh)).
 
 Building
